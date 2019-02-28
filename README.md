@@ -1,4 +1,4 @@
-# Our aim, our game
+# Motto: Our aim, our game
 
 We toil, we try.  
 We will learn and we will fly!
