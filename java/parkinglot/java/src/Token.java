@@ -1,21 +1,28 @@
-import java.sql.Time;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class Token {
-    StringBuffer tokenNumber;
-    Time entryTime;
-    Time exitTime;
+public class Token extends ParkingLot {
+    public String tokenNumber;
+    public Date entryDate;
+    public Date exitDate;
+    public double duration;
     Float charge;
-    public String calculateDuration() {
-        Time diff = entryTime.getTime() - exitTime.getTime();
-        return diff;
+
+    public Token(){
+        entryDate = new Date();
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyMMddHHmmss");
+        tokenNumber = dateFormat.format(entryDate);
     }
-    public float calculateCharge(Time diff) {
-        float dayCharge = 10;
-        float hourCharge = 2;
-        int days = strip(diff, days);
-        float hours = strip(diff, hours);
-        float charge = days*dayCharge + hours*hourCharge;
+    public double calculateDuration() throws Exception{
+        exitDate = new Date();
+        long diff = exitDate.getTime() - entryDate.getTime();
+        return (double)(diff)/(1000*60*60*24);
+    }
+    public double calculateCharge(double duration) {
+        double dayCharge = 10;
+        //float hourCharge = 2;
+        double charge = duration*dayCharge;
+        freeSlot();
         return charge;
     }
 }

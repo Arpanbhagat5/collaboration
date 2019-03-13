@@ -1,10 +1,9 @@
 public class User{
-    StringBuffer name;
-    StringBuffer contact;
-    StringBuffer userType;
+    String name;
+    String contact;
+    String userType;
     public void getData() {
     }
-    // public void updateData() {
-
-    // }
+    public void setData() {
+    }
 }
