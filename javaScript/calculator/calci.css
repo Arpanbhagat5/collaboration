@@ -1,0 +1,9 @@
+div {
+    background-color: lightblue;
+    height: 20px;
+    width: 75px;
+    color: black;
+    display: block;
+    padding: 2px 2px;
+    border: 1px solid black
+}
